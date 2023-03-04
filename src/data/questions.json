@@ -1,0 +1,359 @@
+{
+  "questionSample": [
+    [
+      {
+        "enonce": "",
+        "reponse_correcte": "",
+        "reponseB": "",
+        "reponseC": "",
+        "complement": ""
+      }
+    ]
+  ],
+  "questions": [
+    [
+      {
+        "enonce": "Qu'est ce qui consomme le plus ? (W = Watt)",
+        "reponse_correcte": "Un ordinateur de 120 W qui fonctionne pendant 10 heures.",
+        "reponseB": "Un four de 2 000 W qui fonctionne pendant 30 minutes.",
+        "reponseC": "Une ampoule de 20 W qui fonctionne pendant 10 heures.",
+        "complement": "Un ordinateur de 120 W qui fonctionne pendant 10 heures consomme 1 200 W. Un four de 2 000 W qui fonctionne pendant 30 minutes consomme 1 000 W. Une ampoule de 20 W qui fonctionne pendant 10 heures consomme 200 W."
+      }
+    ],
+    [
+      {
+        "enonce": "Lors de la chauffe, un récipient avec couvercle utilise plus ou moins d'énergie qu'un récipient sans couvercle ?",
+        "reponse_correcte": "Moins.",
+        "reponseB": "Plus."
+      }
+    ],
+    [
+      {
+        "enonce": "Quels sont les déchets plastiques les plus présents dans les océans ?",
+        "reponse_correcte": "Les emballages.",
+        "reponseB": "Les bouteilles.",
+        "reponseC": "Les pailles.",
+        "complement": "Les emballages représentent 13% des objets trouvés dans les océans. La plupart ne sont pas biodégradables, donc y restent des centaines d’années, affectant les animaux marins. Couverts et pailles ne sont pas en reste : en Argentine, une tortue a été retrouvée avec 4 gobelets plastiques et 26 pailles dans le ventre !"
+      }
+    ],
+    [
+      {
+        "enonce": "Quel est le principal atout de la voiture électrique pour l'environnement ?",
+        "reponse_correcte": "Elle est silencieuse.",
+        "reponseB": "Son moteur ne pollue pas quand elle roule.",
+        "reponseC": "Elle n'a pas de pot d'échappement.",
+        "complement": "Son moteur ne pollue pas lorsqu’elle roule contrairement à la voiture essence ou diesel qui brûle du carburant et rejette dans l’air des particules fines, des hydrocarbures et du CO2. A partir de 2035, tous les véhicules neufs vendus dans l’Union Européenne seront obligatoirement électriques."
+      }
+    ],
+    [
+      {
+        "enonce": "À partir de combien de kilomètres la voiture électrique devient-elle vertueuse sur le plan écologique ?",
+        "reponse_correcte": "30 000 à 40 000 km",
+        "reponseB": "35 000 à 45 000 km",
+        "reponseC": "40 000 à 50 000 km",
+        "complement": "La production d’une voiture électrique émet plus de gaz à effet de serre que sont équivalents thermique mais est largement compensée lors de son usage. C’est à partir de 30 000 à 40 000 kilomètres que l’empreinte carbone d’une voiture électrique devient environnementalement rentable par rapport à une voiture thermique."
+      }
+    ],
+    [
+      {
+        "enonce": "En France, quel secteur émet le plus de gaz à effet de serre ?",
+        "reponse_correcte": "Les transports.",
+        "reponseB": "Le bâtiment.",
+        "reponseC": "L'industrie.",
+        "complement": "Les transports représentent plus d’⅓ des émissions de gaz à effet de serre en France. Le transport routier représente à lui seul 95% de ces émissions alors passons aux véhicules électriques !"
+      }
+    ],
+    [
+      {
+        "enonce": "En quelle année est commercialisé le 1e modèle de voiture électrique ?",
+        "reponse_correcte": "1852",
+        "reponseB": "1934",
+        "reponseC": "1986",
+        "complement": "Au début du XXe siècle, les performances de la voiture électrique continuent de progresser. Mais dans les années 1920, le moteur thermique jugé bon marché, plus autonome et plus léger dépasse l’électrique."
+      }
+    ],
+    [
+      {
+        "enonce": "Combien de décès les pollutions provoquent-elles chaque année dans le monde ?",
+        "reponse_correcte": "9 millions",
+        "reponseB": "6 millions",
+        "reponseC": "3 millions",
+        "complement": "Les polluants de l’air, de l’eau et des sols sont responsables de 9 millions de morts chaque année dans le monde. 3x plus que des maladies comme le sida, la tuberculose et le paludisme."
+      }
+    ],
+    [
+      {
+        "enonce": "Combien en moyenne chaque français consomme de litre d’eau potable par jour ?",
+        "reponse_correcte": "149L ",
+        "reponseB": "123L",
+        "reponseC": "99L",
+        "complement": "Soit 54.3 m3 par habitant et par an. Il ne faut pas oublier que l’eau sanitaire est de l’eau potable."
+      }
+    ],
+    [
+      {
+        "enonce": "Combien d’eau est nécessaire pour produire un jean ?",
+        "reponse_correcte": "7 000 à 10 000 L",
+        "reponseB": "1 000 à 3 000 L",
+        "reponseC": "4 000 à 7 000 L",
+        "complement": "L'eau est nécessaire avant même la production. En effet, un tiers de cette consommation d'eau est utilisé pour la culture des plantes comme le coton. Le reste sert à la fabrication, le lavage, la décoloration, à l'aide de nombreux traitements."
+      }
+    ],
+    [
+      {
+        "enonce": "GIEC signifie Gouvernement Interplanétaire Extraterrestre Conservateur.",
+        "reponse_correcte": "Faux",
+        "reponseB": "Vrai",
+        "complement": "GIEC signifie : Groupe d’Experts Intergouvernemental sur l’Evolution du Climat. Il rassemble les scientifiques de 195 Etats qui, depuis 30 ans, analysent le rôle des activités humaines dans le dérèglement climatique et les solutions pour y faire face et s’y adapter."
+      }
+    ],
+    [
+      {
+        "enonce": "De combien pourrait s’élever le niveau des mers d’ici 2100 ?",
+        "reponse_correcte": "1 mètre",
+        "reponseB": "3 mètres",
+        "reponseC": "0,6 mètre",
+        "complement": "Le niveau des mers a augmenté de 20 cm depuis 1900 et cette hausse s’accélère à cause, principalement, de la fonte des calottes glaciaires dues au réchauffement climatique. Sachant que les océans représentent 361 millions km² soit plus de 70% de la surface du globe, la fonte du Groenland a provoqué à elle seule une hausse de 1.2 cm du niveau des océans."
+      }
+    ],
+    [
+      {
+        "enonce": "Que signifie COP21 ?",
+        "reponse_correcte": "21e Conférence des Parties",
+        "reponseB": "21e Congrès des Observateurs de Pissenlit",
+        "complement": "Les Parties sont les pays signataires de la convention cadre des Nations Unies sur les changements climatiques votée à Rio en 1992. Cette conférence internationale sur le climat se tient de manière régulière et vise à négocier de nouveaux engagements écologiques."
+      }
+    ],
+    [
+      {
+        "enonce": "Si rien n’est fait, d'ici 2100 la planète se réchauffera de … ",
+        "reponse_correcte": "2 voire 4°C",
+        "reponseB": "0,5 voire 1°C",
+        "reponseC": "1 voire 2°C",
+        "complement": "En maintenant la croissance actuelle des émissions de gaz à effet de serre, la planète se réchaufferait de 2 voire 4°C d’ici 2100."
+      }
+    ],
+    [
+      {
+        "enonce": "Quel a été l’engagement majeur de la COP21 à Paris ?",
+        "reponse_correcte": "Maintenir en dessous de 2°C le réchauffement climatique.",
+        "reponseB": "Visiter la planète Mars.",
+        "reponseC": "Taxer la pollution numérique.",
+        "complement": "Chaque Etat s’est engagé à mettre en place des actions concrètes de réduction de ses émissions et à financer un fond vert de solidarité. Mais beaucoup reste à faire pour y parvenir."
+      }
+    ],
+    [
+      {
+        "enonce": "A quoi sert un nudge vert ?",
+        "reponse_correcte": "Inciter à adopter un comportement respectueux de l'environnement.",
+        "reponseB": "Permettre aux arbres de pousser plus rapidement.",
+        "reponseC": "Donner l’impression qu’une fausse pelouse est réelle.",
+        "complement": "Un nudge vert est un visuel ou un message simple et ludique qui incite à agir de manière éco-responsable. Par exemple, les affiches présentes dans la plupart des salles de l'ISEN pour rappeler de ne pas oublier d'éteindre les lumières ou de fermer les fenêtres."
+      }
+    ],
+    [
+      {
+        "enonce": "Quel est le % des déchets recyclés dans le monde ?",
+        "reponse_correcte": "19%",
+        "reponseB": "25%",
+        "reponseC": "33%",
+        "complement": "Dans le monde, seulement 19% des déchets sont recyclés, 37% sont enfouis, 33% sont laissés à ciel ouvert."
+      }
+    ],
+    [
+      {
+        "enonce": "Quel pays valorise 99% de ses déchets ?",
+        "reponse_correcte": "Suède",
+        "reponseB": "Japon",
+        "reponseC": "Brésil",
+        "complement": "En Suède, seul 1% des 4.4 millions de déchets n’est pas recyclé, composté ou valorisé en énergie. En France, environ 65% des déchets sont valorisés."
+      }
+    ],
+    [
+      {
+        "enonce": "Comment une épluchure devient de l’énergie ?",
+        "reponse_correcte": "Par méthanation.",
+        "reponseB": "Par fusion nucléaire. ",
+        "reponseC": "Par magie.",
+        "complement": "La méthanation est un processus biologique de décomposition qui permet de transformer les matériaux organiques en biogaz, ensuite capté et transformé en énergie électrique ou thermique."
+      }
+    ],
+    [
+      {
+        "enonce": "Quelle quantité de plastique est produite chaque seconde dans le monde ?",
+        "reponse_correcte": "10 tonnes (10 000 kg)",
+        "reponseB": "4 tonnes (4 000 kg)",
+        "reponseC": "7 tonnes (7 000 kg)",
+        "complement": "Depuis 1950, 9 milliards de tonnes (9 000 000 000 000 kg) de plastique ont été produits. Seulement 9% ont été recyclés."
+      }
+    ],
+    [
+      {
+        "enonce": "Combien de kg de pétrole brut économise-t-on avec une tonne de plastique recyclé ?",
+        "reponse_correcte": "600 kg",
+        "reponseB": "450 kg",
+        "reponseC": "300 kg",
+        "complement": "L’utilisation de plastique recyclés permet d’économiser les ressources en pétrole et gaz naturel, de faire des économies d’énergie et d’éviter de polluer les milieux naturels."
+      }
+    ],
+    [
+      {
+        "enonce": "Laquelle de ces énergies n’est pas fossile ?",
+        "reponse_correcte": "Géothermie.",
+        "reponseB": "Pétrole.",
+        "reponseC": "Gaz.",
+        "complement": "Le pétrole, le charbon et le gaz sont des sources d'énergies dites fossiles issues de la décomposition d’éléments vivants il y a plusieurs millions d’années et émettant beaucoup de gaz à effet de serre."
+      }
+    ],
+    [
+      {
+        "enonce": "70% des ressources en eau potable dans le monde sont utilisées pour l’agriculture.",
+        "reponse_correcte": "Vrai.",
+        "reponseB": "Faux.",
+        "complement": "Il faut plus de 500 L d’eau pour produire 1 kg de viande et plus de 200 L d’eau pour 1 kg de tomates."
+      }
+    ],
+    [
+      {
+        "enonce": "Quel est le % d’énergie hydraulique dans la production mondiale d’électricité ?",
+        "reponse_correcte": "15%",
+        "reponseB": "22%",
+        "reponseC": "8%",
+        "complement": "L’énergie hydraulique est la 3e source d’énergie la plus utilisée pour produire de l’électricité dans le monde après le charbon (36%) et le gaz naturel (22%). Tandis que le nucléaire est 4e avec 10%. En France, l’énergie hydraulique est la 1e énergie renouvelable électrique."
+      }
+    ],
+    [
+      {
+        "enonce": "Qu’est ce que l’empreinte carbone ?",
+        "reponse_correcte": "L’indicateur d’impact d’une activité sur l’environnement.",
+        "reponseB": "La trace laissée par Armstrong sur la Lune.",
+        "complement": "L’empreinte carbone est une évaluation des émissions de gaz à effet de serre (GES), mesurée en équivalent de CO2. Elle rend compte des émissions directes et indirectes de CO2 rejetées dans l’atmosphère par un produit ou un service."
+      }
+    ],
+    [
+      {
+        "enonce": "Sans effet de serre, la Terre serait …",
+        "reponse_correcte": "Une boule de glace.",
+        "reponseB": "Une boule de feu.",
+        "complement": "Les gaz à effet de serre retiennent sur Terre une partie du rayonnement infrarouge renvoyé par la planète et la réchauffe : c’est l’effet de serre. Sans lui, la température de la Terre serait de -18°C, équivalente à un congélateur."
+      }
+    ],
+    [
+      {
+        "enonce": "Chaque français consomme en moyenne …",
+        "reponse_correcte": "96 bouteilles en plastique par an.",
+        "reponseB": "33 bouteilles en plastique par an.",
+        "reponseC": "365 bouteilles en plastique par an.",
+        "complement": "96 bouteilles en plastique par an représente presque 2 bouteilles en plastique par semaine. Dans le monde, 1 million de bouteilles en plastique sont vendues chaque minute et peu sont recyclées."
+      }
+    ],
+    [
+      {
+        "enonce": "Quel est le meilleur emballage pour la planète ?",
+        "reponse_correcte": "Celui qu’on ne produit pas",
+        "reponseB": "La canette en aluminium",
+        "reponseC": "La bouteille en verre",
+        "complement": "Un emballage, quel qu’il soit, a toujours un impact environnemental plus ou moins important. Pour agir en consommateur responsable, il est préférable d’utiliser un emballage réutilisable comme le verre et dans tous les cas de les recycler."
+      }
+    ],
+    [
+      {
+        "enonce": "Il y a 5 000 milliards de débris de plastique à la surface des océans.",
+        "reponse_correcte": "Vrai.",
+        "reponseB": "Faux.",
+        "complement": "C’est un continent de plastiques qui flotte dans les océans tandis que les déchets les plus lourds coulent dans les fonds marins. En 2050, il y aura plus de poids de plastiques que de poissons."
+      }
+    ],
+    [
+      {
+        "enonce": "Jusqu’à combien les appareils électroniques en veille peuvent représenter sur la facture d’électricité ?",
+        "reponse_correcte": "15%",
+        "reponseB": "10%",
+        "reponseC": "5%",
+        "complement": "La facture d’électricité moyenne pour une personne en France est de 430€ par an. Débrancher les appareils électroniques peut donc permettre une économie de 65€ par an sans difficultés."
+      }
+    ],
+    [
+      {
+        "enonce": "Quel est le % que représente le chauffage dans la consommation énergétique d’un logement ?",
+        "reponse_correcte": "66%",
+        "reponseB": "50%",
+        "reponseC": "33%",
+        "complement": "Le chauffage est la plus grande dépense énergétique dans un logement devant l’électricité spécifique, qui regroupe les équipements qui ne peuvent fonctionner qu’avec de l'électricité (17%), et le chauffe-eau (11%)."
+      }
+    ],
+    [
+      {
+        "enonce": "Quel est le % d’économie d’énergie que nous faisons en baissant le chauffage d'1°C ?",
+        "reponse_correcte": "7%",
+        "reponseB": "4%",
+        "reponseC": "1%",
+        "complement": "7% d’économie d’énergie en baissant seulement le chauffage d' 1°C n’est pas négligeable. Alors réglons le chauffage à 19°C et couvrons davantage si besoin."
+      }
+    ],
+    [
+      {
+        "enonce": "Une box allumée en continu consomme autant qu’un petit réfrigérateur en une année.",
+        "reponse_correcte": "Vrai.",
+        "reponseB": "Faux."
+      }
+    ],
+    [
+      {
+        "enonce": "Un téléviseur de 160cm consomme autant que 3 ou 4 téléviseurs de 80 cm.",
+        "reponse_correcte": "Vrai.",
+        "reponseB": "Faux."
+      }
+    ],
+    [
+      {
+        "enonce": "Un ordinateur portable consomme 50 à 80% moins qu’un ordinateur fixe.",
+        "reponse_correcte": "Vrai.",
+        "reponseB": "Faux."
+      }
+    ],
+    [
+      {
+        "enonce": "10H de film en HD contiennent plus de données que l’intégralité des articles en anglais de Wikipédia.",
+        "reponse_correcte": "Vrai.",
+        "reponseB": "Faux."
+      }
+    ],
+    [
+      {
+        "enonce": "Un mail avec pièce jointe consomme ...",
+        "reponse_correcte": "9 fois qu'un mail sans pièce jointe.",
+        "reponseB": "5 fois qu'un mail sans pièce jointe.",
+        "reponseC": "2 fois qu'un mail sans pièce jointe.",
+        "complement": "Un mail avec pièce jointe consomme 35g CO2 eq contre 4g CO2 eq pour un mail sans pièce jointe. Ainsi, il est conseillé d'envoyer un lien dans le mail qui permet de télécharger la pièce jointe en utilisant par exemple des fichiers Google Drive ou Wetransfer."
+      }
+    ],
+    [
+      {
+        "enonce": "La 4G consomme ...",
+        "reponse_correcte": "3 fois plus que le Wifi.",
+        "reponseB": "2 fois plus que le Wifi.",
+        "reponseC": "Autant que le Wifi.",
+        "complement": "Il est préférable d'utiliser le Wifi plutôt que la 4G dans le but de réduire sa consommation énergétique et réduire son empreinte carbonne."
+      }
+    ],
+    [
+      {
+        "enonce": "Jusqu'à combien le mode Eco des appareils électroniques permet-il de réduire sa consommation d'électricité ?",
+        "reponse_correcte": "50%",
+        "reponseB": "10%",
+        "reponseC": "33%",
+        "complement": "Lorsque le mode Eco est disponible sur un appareil électronique, il est préférable de l'utiliser pour réduire fortement sa consommation électrique."
+      }
+    ],
+    [
+      {
+        "enonce": "Parmi les 1 383 millions de km3 d’eau présente sur Terre, environ quel % représente de l’eau potable ?",
+        "reponse_correcte": "3%",
+        "reponseB": "9%",
+        "reponseC": "12%",
+        "complement": "Ce qui représente environ 40 millions de km3 d'eau potable sur Terre. Tandis que 2% représente les calottes polaires, glaciers et neiges permanentes, seulement 1%, en comptant l’eau contenue dans le sous-sol et dans la croûte terrestre, est disponible pour les êtres vivants."
+      }
+    ]
+  ]
+}
