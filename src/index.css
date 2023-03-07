@@ -40,10 +40,8 @@ code {
 
 .email-form * {
   font-family: ‘Poppins’, sans-serif;
-  color: #ffffff;
   letter-spacing: 0.5px;
   outline: none;
-  border: none;
 }
 
 .email-form h3 {
@@ -52,6 +50,7 @@ code {
   line-height: 42px;
   text-align: center;
   margin-top: 0;
+  color: #ffffff;
 }
 
 .email-form label {
@@ -59,9 +58,10 @@ code {
   margin-top: 30px;
   font-size: 16px;
   font-weight: 500;
+  color: #ffffff;
 }
 
-.email-form input {
+.email-form input, select {
   display: block;
   height: 50px;
   width: 100%;
@@ -72,6 +72,11 @@ code {
   font-size: 14px;
   font-weight: 300;
   border: rgba(255, 255, 255, 0.67) 1px solid;
+  color: #ffffff;
+}
+
+.email-form option {
+  color: black;
 }
 
 ::placeholder {
@@ -80,7 +85,7 @@ code {
 
 .email-form a {
   margin: auto;
-  margin-top: 50px;
+  margin-top: 20px;
   width: 70%;
   background-color: transparent;
   border: #ffffff 1px solid;

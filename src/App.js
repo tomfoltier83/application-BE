@@ -14,9 +14,10 @@ function App() {
   const navigate = useNavigate()
 
   const questionNumber = useSelector((state) => state.userInformations.question);
-  const score = useSelector((state) => console.log(state.userInformations.score));
-  console.log(questionNumber)
+  //console.log(questionNumber)
 
+
+  // Fonction permettant de stopper le quizz après 3 question posées à l'utilisateur
   useEffect(() => {
     if (questionNumber === 4) {
       navigate('/login');
