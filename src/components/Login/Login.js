@@ -9,6 +9,7 @@ import db from '../../firebase'
 import { onSnapshot, collection, setDoc, doc } from 'firebase/firestore';
 import { useSelector } from "react-redux";
 import { v4 as uuidv4 } from 'uuid'
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
 
@@ -18,6 +19,7 @@ export default function Login() {
   const [playerError, setPlayerError] = useState("")
 
   const score = useSelector((state) => state.userInformations.score);
+  const navigate = useNavigate()
 
   useEffect(() => {
       onSnapshot(collection(db, "quizzPlayers"), (snapshot) => {
@@ -27,11 +29,13 @@ export default function Login() {
 
   console.log(playersOfTheDay)
 
-  const handleNewPlayer = async () => {
+  const handleNewPlayer = async (e) => {
+    e.preventDefault()
     if (!playersOfTheDay.includes(`${eleveEmail}`)) {
       const docRef = doc(db, "quizzPlayers", uuidv4())
       const payload = { email: eleveEmail, score: score }
       await setDoc(docRef, payload)
+      navigate("/")
     } else {
       setPlayerError("Vous avez déjà joué aujourd'hui...")
     }
@@ -81,7 +85,7 @@ export default function Login() {
           <ListToShow />
         </select>
         <p style={{paddingTop: "20px", textAlign: "center", fontWeight: "600"}}>{playerError}</p>
-        <Link to="/" onClick={handleNewPlayer}>Enregistrer</Link>
+        <button onClick={handleNewPlayer}>Enregistrer</button>
       </form >
     </>
   )

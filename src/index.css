@@ -83,7 +83,7 @@ code {
   color: #e5e5e5;
 }
 
-.email-form a {
+.email-form button {
   margin: auto;
   margin-top: 20px;
   width: 70%;
@@ -101,7 +101,7 @@ code {
   text-decoration: none;
 }
 
-.email-form a:hover {
+.email-form button:hover {
   transform: scale(1.1);
   background-color: #ffffff;
   color: #080710;

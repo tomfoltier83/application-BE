@@ -25,11 +25,13 @@ export default function Question() {
         const newRandomArray = shuffle(baseAnswers)
         setAnswersArray(newRandomArray)
         /// On replace l'index des boutons à la position 1
+        
         setSelectedIndex(1)
     }, [questionId]);
 
     useEffect(() => {
         buttons.current[selectedIndex].focus();
+        console.log(answersArray)
     });
 
     //const questionNumber = useSelector((state) => console.log(state.userInformations.question));
