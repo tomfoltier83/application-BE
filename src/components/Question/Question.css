@@ -60,20 +60,49 @@ button:empty {
   transition: transform 0.5 ease-in-out;
 }
 
-.answer-button:nth-child(1) {
-  background: #2196f3;
-}
-
-.answer-button:nth-child(2) {
-  background: #f3e521;
-}
-
-.answer-button:nth-child(3) {
-  background: #f32121;
-}
-
-.answer-button:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+.answer-button {
+  background: white;
   color: #000;
+}
+
+.answer-button:focus {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
   transform: scale(1.2);
+  border: none;
+  outline: none;
+  background: #0400ff;
+  color: white;
+}
+.form-container h1 {
+  color: white;
+  text-align: center;
+  text-shadow: 3px 0px 7px rgba(0, 0, 0, 0.8), -3px 0px 7px rgba(0, 0, 0, 0.8), 0px 4px 7px rgba(0, 0, 0, 0.8);
+}
+
+.form-container h1 span {
+  color: #0400ff;
+  text-shadow: 3px 0px 7px rgba(255, 255, 255, 0.8), -3px 0px 7px rgba(255, 255, 255, 0.8), 0px 4px 7px rgba(255, 255, 255, 0.8);
+
+}
+
+.complement {
+  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  margin: 30px;
+  padding: 40px 70px;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.complement p, .complement h3 {
+  color: white;
+  text-align: center;
+}
+
+.complement .answer-button {
+  width: 30%;
+  margin-top: 25px;
 }

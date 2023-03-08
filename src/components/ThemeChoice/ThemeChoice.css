@@ -79,15 +79,12 @@ body .container .card .box:before {
 
 body .container .card .box .content {
   padding: 20px;
-  padding-top: 150px;
   text-align: center;
 }
 
 body .container .card .box .content h2 {
-  position: absolute;
-  top: -10px;
-  right: 30px;
-  font-size: 8rem;
+  text-align: center;
+  font-size: 5rem;
   color: rgba(255, 255, 255, 0.1);
 }
 

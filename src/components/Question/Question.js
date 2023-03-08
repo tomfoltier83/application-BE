@@ -10,10 +10,12 @@ export default function Question() {
 
     const [questionId, setQuestionId] = useState(parseInt(Math.random() * 40))
     const [answersArray, setAnswersArray] = useState([])
-    const dispatch = useDispatch();
     const [selectedIndex, setSelectedIndex] = useState(0);
+    const [isAnswer, setIsAnswer] = useState(false)
+    const [isGoodAnswer, setIsGoodAnswer] = useState(false)
+    const dispatch = useDispatch();
 
-    const buttons = useRef([]);
+    const answerButtons = useRef([]);
 
     useEffect(() => {
         /// A chaque fois que l'id de la question change :
@@ -25,12 +27,12 @@ export default function Question() {
         const newRandomArray = shuffle(baseAnswers)
         setAnswersArray(newRandomArray)
         /// On replace l'index des boutons à la position 1
-        
+
         setSelectedIndex(1)
     }, [questionId]);
 
     useEffect(() => {
-        buttons.current[selectedIndex].focus();
+        answerButtons.current[selectedIndex].focus();
         console.log(answersArray)
     });
 
@@ -65,9 +67,9 @@ export default function Question() {
     const checkAnswer = (userAnswer) => {
         if (userAnswer === questions["questions"][questionId][0]["reponse_correcte"]) {
             dispatch(setScore())
-            console.log("good")
+            setIsGoodAnswer(true)
         } else {
-            console.log('bad')
+            setIsGoodAnswer(false)
         }
     }
 
@@ -82,9 +84,20 @@ export default function Question() {
         return array;
     }
 
+    /// On affiche la réponse avec le complément
+    const ShowAnswer = () => {
+        return (
+            <div className="complement" style={isAnswer ? {} : { display: "none" }}>
+                {isGoodAnswer ? <h3>Bonne réponse !</h3> : <h3>Mauvaise réponse ... <p style={{ fontSize: "15px", padding: "10px 0" }}>La réponse était : {questions["questions"][questionId][0]["reponse_correcte"]}</p></h3>}
+                <p className='complement-text'>{questions["questions"][questionId][0]["complement"]}</p>
+                <button autoFocus onKeyDown={event => handleNextKeyDown(event)} className='answer-button'>Suivant</button>
+            </div>
+        )
+    }
+
     /// On écoute le comportement sur chacun des boutons de réponse
-    const handleKeyDown = (event, index) => {
-        if (event.key === 'ArrowRight' && selectedIndex < buttons.current.length - 1) {
+    const handleAnswerKeyDown = (event, index) => {
+        if (event.key === 'ArrowRight' && selectedIndex < answerButtons.current.length - 1) {
             setSelectedIndex(selectedIndex + 1);
         }
         if (event.key === 'ArrowLeft' && selectedIndex > 0) {
@@ -93,31 +106,38 @@ export default function Question() {
         if (event.key === 'Enter') {
             event.preventDefault()
             checkAnswer(event.target.innerHTML)
+            setIsAnswer(true)
+            // On change de question
+            //setQuestionId(newQuestionId)
+        }
+    };
+    /// On écoute le comportement sur chacun des boutons de réponse
+    const handleNextKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault()
             const newQuestionId = parseInt(Math.random() * 40)
+            setIsAnswer(false)
+            setIsGoodAnswer(false)
             // On change de question
             setQuestionId(newQuestionId)
         }
     };
 
+    console.log(isAnswer)
+
     return (
         <form className='form-container' tabIndex="0">
             {transitions((style) =>
                 <animated.div style={style}>
-                    <div className="form-content">
+                    <div className="form-content" style={isAnswer ? { display: "none" } : {}}>
                         <div className="question">
                             <h1>{questions["questions"][questionId][0]["enonce"]}</h1>
                         </div>
-
-                        {/* <div className="answers">
-                            <button className='answer-button' onClick={answerClick}>{shuffledArray[0]}</button>
-                            <button className='answer-button' onClick={answerClick}>{shuffledArray[1]}</button>
-                            <button className='answer-button' onClick={answerClick}>{shuffledArray[2]}</button>
-                        </div> */}
                         <div className="answers">
                             {[[answersArray[0]], [answersArray[1]], [answersArray[2]]].map((button, index) => (
                                 <button
-                                    ref={el => (buttons.current[index] = el)}
-                                    onKeyDown={event => handleKeyDown(event, index)}
+                                    ref={el => (answerButtons.current[index] = el)}
+                                    onKeyDown={event => handleAnswerKeyDown(event, index)}
                                     className='answer-button'
                                     id={button[1]}
                                 >
@@ -126,8 +146,10 @@ export default function Question() {
                             ))}
                         </div>
                     </div>
+                    <ShowAnswer />
                 </animated.div>
             )}
+            <h1>Appuyez sur le bouton <span>BLEU</span> pour valider votre réponse !</h1>
         </form>
     )
 }
