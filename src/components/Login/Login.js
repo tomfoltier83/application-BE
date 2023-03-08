@@ -6,6 +6,7 @@ import N3 from '../../data/N3.json';
 import M1 from '../../data/M1.json';
 import M2 from '../../data/M2.json';
 import db from '../../firebase'
+import "./Login.css"
 import { onSnapshot, collection, setDoc, doc } from 'firebase/firestore';
 import { useSelector } from "react-redux";
 import { v4 as uuidv4 } from 'uuid'
@@ -87,6 +88,7 @@ export default function Login() {
         <p style={{paddingTop: "20px", textAlign: "center", fontWeight: "600"}}>{playerError}</p>
         <button onClick={handleNewPlayer}>Enregistrer</button>
       </form >
+      <h1 className='login-helper'>Appuyez sur le bouton <span>BLEU</span> pour valider !</h1>
     </>
   )
 }

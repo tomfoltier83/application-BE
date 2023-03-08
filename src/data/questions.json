@@ -322,9 +322,9 @@
     [
       {
         "enonce": "Un mail avec pièce jointe consomme ...",
-        "reponse_correcte": "9 fois qu'un mail sans pièce jointe.",
-        "reponseB": "5 fois qu'un mail sans pièce jointe.",
-        "reponseC": "2 fois qu'un mail sans pièce jointe.",
+        "reponse_correcte": "9 fois plus qu'un mail sans pièce jointe.",
+        "reponseB": "5 fois plus qu'un mail sans pièce jointe.",
+        "reponseC": "2 fois plus qu'un mail sans pièce jointe.",
         "complement": "Un mail avec pièce jointe consomme 35g CO2 eq contre 4g CO2 eq pour un mail sans pièce jointe. Ainsi, il est conseillé d'envoyer un lien dans le mail qui permet de télécharger la pièce jointe en utilisant par exemple des fichiers Google Drive ou Wetransfer."
       }
     ],

@@ -1,0 +1,28 @@
+.login-helper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translate(66.66%, -100%);
+    color: white;
+    text-align: center;
+    text-shadow: 3px 0px 7px rgba(0, 0, 0, 0.8), -3px 0px 7px rgba(0, 0, 0, 0.8), 0px 4px 7px rgba(0, 0, 0, 0.8);
+    text-align: center;
+  }
+  
+  .login-helper span {
+    color: #0400ff;
+    text-shadow: 3px 0px 7px rgba(255, 255, 255, 0.8), -3px 0px 7px rgba(255, 255, 255, 0.8), 0px 4px 7px rgba(255, 255, 255, 0.8);
+  }
+
+  .email-form button i {
+    animation: rightToLeft 1s infinite ease-in-out alternate-reverse;
+  }
+  
+  @keyframes rightToLeft {
+    from{
+      transform: translateX(7px);
+    }
+    to {
+      transform: translateX(-7px);
+    }
+  }

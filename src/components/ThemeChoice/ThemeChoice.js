@@ -16,13 +16,13 @@ export default function ThemeChoice() {
     }, []);
 
     const handleKeyDown = (event) => {
-        if (event.key === 'ArrowRight') {
+        if (event.key === 'a') {
             navigate("/infos")
         }
-        if (event.key === 'ArrowLeft') {
+        if (event.key === 'z') {
             navigate("/quizz")
         }
-        if (event.key === 'Enter') {
+        if (event.key === 'e') {
             navigate("/eco-watt")
         }
     }
