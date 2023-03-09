@@ -14,6 +14,8 @@ import { onSnapshot, collection, setDoc, doc } from 'firebase/firestore';
 import { useSelector } from "react-redux";
 import { v4 as uuidv4 } from 'uuid'
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setScore, setQuestion, resetAll } from "../../redux";
 
 export default function Login() {
 
@@ -23,6 +25,7 @@ export default function Login() {
   const [playerError, setPlayerError] = useState("")
   const [selectedIndex, setSelectedIndex] = useState(0);
   const selectRef = useRef([]);
+  const dispatch = useDispatch();
 
   const score = useSelector((state) => state.userInformations.score);
   const navigate = useNavigate()
@@ -58,6 +61,7 @@ export default function Login() {
       const docRef = doc(db, "quizzPlayers", uuidv4())
       const payload = { email: eleveEmail, score: score }
       await setDoc(docRef, payload)
+      dispatch(resetAll())
       navigate("/")
     } else {
       setPlayerError("Vous avez déjà joué aujourd'hui...")

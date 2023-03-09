@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react'
 import "./Question.css"
 import questions from '../../data/questions.json';
 import { useTransition, animated } from 'react-spring';
-import { useDispatch, useSelector } from "react-redux";
-import { setEmail, setScore, setQuestion } from "../../redux";
+import { useDispatch } from "react-redux";
+import { setScore, setQuestion } from "../../redux";
 import { redirect } from "react-router-dom";
 
 export default function Question() {
@@ -124,7 +124,6 @@ export default function Question() {
             width: "90%",
             opacity: 0,
             transform: 'scale(0)',
-            delay: 1000
         },
         enter: {
             width: "90%",

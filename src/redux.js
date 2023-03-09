@@ -3,7 +3,6 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 const userSlice = createSlice({
   name: "node",
   initialState: {
-    email: "test@test.com",
     score: 0,
     question: 0
   },
@@ -12,15 +11,19 @@ const userSlice = createSlice({
       state["email"] = action.payload
     },
     setScore: (state, action) => {
-      state["score"] ++
+      state["score"]++
     },
     setQuestion: (state, action) => {
-      state.question ++
+      state.question++
+    },
+    resetAll: (state, action) => {
+      state.score = 0
+      state.question = 0
     }
   },
 });
 
-export const { setEmail, setScore, setQuestion } = userSlice.actions;
+export const { setScore, setQuestion, resetAll } = userSlice.actions;
 
 export const store = configureStore({
   reducer: {

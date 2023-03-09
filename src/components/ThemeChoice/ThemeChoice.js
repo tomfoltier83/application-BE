@@ -2,14 +2,19 @@ import React, { useEffect } from 'react'
 import "./ThemeChoice.css"
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function ThemeChoice() {
 
     const navigate = useNavigate()
+    const questionNumber = useSelector((state) => state.userInformations.question);
+    console.log(questionNumber)
+    const scoreNumber = useSelector((state) => state.userInformations.score);
+    console.log(scoreNumber)
 
     useEffect(() => {
         document.addEventListener('keydown', handleKeyDown);
-
+        
         return () => {
             document.removeEventListener('keydown', handleKeyDown)
         }
