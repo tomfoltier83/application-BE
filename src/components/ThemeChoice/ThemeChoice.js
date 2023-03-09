@@ -22,13 +22,14 @@ export default function ThemeChoice() {
         if (event.key === 'z') {
             navigate("/quizz")
         }
-        if (event.key === 'e') {
+        if (event.key === 'Enter') {
             navigate("/eco-watt")
         }
     }
 
     return (
         <div className="theme-container">
+            <h1>Welcome to <span style={{color: "green"}}>G.R.E.T.A</span></h1>
             <div class="container">
                 <div class="card">
                     <div class="box">

@@ -12,21 +12,25 @@
   align-items: center;
   flex-wrap: wrap;
   min-height: 100vh;
-  background: #232427;
+  background: #53a145;
+  flex-direction: column;
+  padding-top: 100px;
+}
+.theme-container h1 {
+  color: white;
+  font-size: 3rem;
 }
 
 body .container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  max-width: 1200px;
+  width: 100%;
+  justify-content: space-evenly;
   margin: 40px 0;
 }
 
 body .container .card {
   position: relative;
-  min-width: 320px;
+  width: 33%;
   height: 440px;
   box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
     inset -5px -5px 15px rgba(255, 255, 255, 0.1),
@@ -54,7 +58,7 @@ body .container .card .box {
   left: 20px;
   right: 20px;
   bottom: 20px;
-  background: #2a2b2f;
+  background: #234d1c;
   border-radius: 15px;
   display: flex;
   justify-content: center;
@@ -85,7 +89,7 @@ body .container .card .box .content {
 body .container .card .box .content h2 {
   text-align: center;
   font-size: 5rem;
-  color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.4);
 }
 
 body .container .card .box .content h3 {

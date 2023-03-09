@@ -17,11 +17,17 @@ code {
     monospace;
 }
 
-.veolia-logo {
-  width: 200px;
+.logos {
+  width: 100%;
   position: absolute;
   top: 0;
-  left: 0;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.veolia-logo, .isen-logo, .tvt-logo, .citylab-logo {
+  width:10%;
+  height: 10%;
 }
 
 .email-form {
@@ -51,6 +57,7 @@ code {
   text-align: center;
   margin-top: 0;
   color: #ffffff;
+  padding-bottom: 20px;
 }
 
 .email-form label {
@@ -101,7 +108,7 @@ code {
   text-decoration: none;
 }
 
-.email-form button:hover {
+.email-form button:focus {
   transform: scale(1.1);
   background-color: #ffffff;
   color: #080710;

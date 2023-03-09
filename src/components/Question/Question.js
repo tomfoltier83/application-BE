@@ -31,15 +31,8 @@ export default function Question() {
         const newRandomArray = shuffle(baseAnswers)
         setAnswersArray(newRandomArray)
         /// On replace l'index des boutons à la position 1
-
         setSelectedIndex(1)
-    }, [questionId]);
 
-    const firstButtonRef = useRef();
-    const secondButtonRef = useRef();
-    const thirdButtonRef = useRef();
-
-    useEffect(() => {
         document.addEventListener('keydown', handleKeyDown);
         const firstButton = document.getElementById('button1');
         const secondButton = document.getElementById('button2');
@@ -51,15 +44,11 @@ export default function Question() {
         return () => {
             document.removeEventListener('keydown', handleKeyDown)
         }
-    }, []);
+    }, [questionId]);
 
-    useEffect(() => {
-
-        // console.log(firstButtonRef.current.innerHTML)
-        // console.log(secondButtonRef.current.innerHTML)
-        // console.log(thirdButtonRef.current.innerHTML)
-    });
-
+    const firstButtonRef = useRef();
+    const secondButtonRef = useRef();
+    const thirdButtonRef = useRef();
 
     const handleKeyDown = (event) => {
         if (event.key === 'a') {
@@ -74,7 +63,7 @@ export default function Question() {
             // console.log(secondButtonRef.current.innerHTML)
             setIsAnswer(true)
         }
-        if (event.key === 'e') {
+        if (event.key === 'Enter') {
             event.preventDefault()
             checkAnswer(thirdButtonRef.current.innerHTML)
             // console.log(thirdButtonRef.current.innerHTML)
@@ -82,31 +71,10 @@ export default function Question() {
         }
     }
 
-    const transitions = useTransition(questionId, {
-        from: {
-            with: "90%",
-            opacity: 0,
-            transform: 'scale(0)',
-            delay: 1000
-        },
-        enter: {
-            with: "90%",
-            opacity: 1,
-            transform: 'scale(1)',
-            delay: 1000
-        },
-        leave: {
-            with: "90%",
-            opacity: 0,
-            position: 'absolute',
-            transform: 'scale(0)',
-        }
-    })
-
     const checkAnswer = (userAnswer) => {
+        console.log(userAnswer)
+        console.log(questions["questions"][questionId][0]["reponse_correcte"])
         if (userAnswer === questions["questions"][questionId][0]["reponse_correcte"]) {
-            console.log(userAnswer)
-            console.log(questions["questions"][questionId][0]["reponse_correcte"])
             dispatch(setScore())
             setIsGoodAnswer(true)
         } else {
@@ -135,24 +103,7 @@ export default function Question() {
         )
     }
 
-    /// On écoute le comportement sur chacun des boutons de réponse
-    // const handleAnswerKeyDown = (event, index) => {
-    //     if (event.key === 'ArrowRight' && selectedIndex < answerButtons.current.length - 1) {
-    //         setSelectedIndex(selectedIndex + 1);
-    //     }
-    //     if (event.key === 'ArrowLeft' && selectedIndex > 0) {
-    //         setSelectedIndex(selectedIndex - 1);
-    //     }
-    //     if (event.key === 'Enter') {
-    //         event.preventDefault()
-    //         checkAnswer(event.target.innerHTML)
-    //         setIsAnswer(true)
-    //         // On change de question
-    //         //setQuestionId(newQuestionId)
-    //     }
-    // };
-
-    /// On écoute le comportement sur chacun des boutons de réponse
+    /// On écoute le comportement sur le joystick dans le but de passer à la question suivante
     const handleNextKeyDown = (event) => {
         if (event.key === 'ArrowRight') {
             event.preventDefault()
@@ -162,7 +113,32 @@ export default function Question() {
             // On change de question
             setQuestionId(newQuestionId)
         }
+        if (event.key === 'Enter') {
+            event.preventDefault()
+        }
     };
+
+
+    const transitions = useTransition(questionId, {
+        from: {
+            width: "90%",
+            opacity: 0,
+            transform: 'scale(0)',
+            delay: 1000
+        },
+        enter: {
+            width: "90%",
+            opacity: 1,
+            transform: 'scale(1)',
+            delay: 1000
+        },
+        leave: {
+            width: "90%",
+            opacity: 0,
+            position: 'absolute',
+            transform: 'scale(0)',
+        }
+    })
 
     return (
         <form className='form-container' tabIndex="0">
@@ -177,18 +153,6 @@ export default function Question() {
                             <button id='button2' className='answer-button'>{answersArray[1]}</button>
                             <button id='button3' className='answer-button'>{answersArray[2]}</button>
                         </div>
-                        {/* <div className="answers">
-                            {[[answersArray[0]], [answersArray[1]], [answersArray[2]]].map((button, index) => (
-                                <button
-                                    ref={el => (answerButtons.current[index] = el)}
-                                    onKeyDown={event => handleAnswerKeyDown(event, index)}
-                                    className='answer-button'
-                                    id={button[1]}
-                                >
-                                    {button[0]}
-                                </button>
-                            ))}
-                        </div> */}
                     </div>
                     <ShowAnswer />
                 </animated.div>
