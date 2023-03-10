@@ -41,7 +41,7 @@ export default function ThemeChoice() {
                         <div class="content">
                             <h2><i class="fa-solid fa-info"></i></h2>
                             <h3>Infos</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
+                            <p>Jetez un coup d'oeil sur la consommation de la Maison du Numérique et de l'Innovation.</p>
                             <Link to='/infos' activeClassName="current">Commencer</Link>
                         </div>
                     </div>
@@ -52,7 +52,7 @@ export default function ThemeChoice() {
                         <div class="content">
                             <h2><i class="fa-solid fa-question"></i></h2>
                             <h3>Quizz</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
+                            <p>Testez vos connaissances sur les enjeux écologiques d'aujourd'hui.</p>
                             <Link to='/quizz' activeClassName="current">Commencer</Link>
                         </div>
                     </div>
@@ -63,7 +63,7 @@ export default function ThemeChoice() {
                         <div class="content">
                             <h2><i class="fa-solid fa-cloud-sun"></i></h2>
                             <h3>Eco-Watt</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, totam velit? Iure nemo labore inventore?</p>
+                            <p>Consultez l'état du réseau électrique métropolitain avec la météo de l'électricité.</p>
                             <Link to='/eco-watt' activeClassName="current">Commencer</Link>
                         </div>
                     </div>

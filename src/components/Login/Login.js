@@ -174,7 +174,7 @@ export default function Login() {
         onClick={handleNewPlayer}
         >Enregistrer</button>
       </form >
-      <h1 className='login-helper'>Appuyez sur le bouton <span>BLEU</span> pour valider !</h1>
+      <h1 className='login-helper'>Utilisez le JOYSTICK pour naviguer et appuyez sur le bouton <span>BLEU</span> pour valider !</h1>
     </>
   )
 }

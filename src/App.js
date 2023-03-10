@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom'
 import { useSelector } from "react-redux";
 import InfosChoice from './components/InfosChoice/InfosChoice';
+import EcoWatt from './components/EcoWatt/EcoWatt';
 
 
 function App() {
@@ -40,17 +41,7 @@ function App() {
         <Route exact path="/quizz" element={<Question />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/infos" element={<InfosChoice />} />
-        {/* <Route
-          exact
-          path="/login"
-          element={
-            questionNumber === 4 ? (
-              <Navigate replace to={"/login"} />
-            ) : (
-              <Navigate replace to={"/quizz"} />
-            )
-          }
-        />  */}
+        <Route exact path="/eco-watt" element={<EcoWatt />} />
       </Routes>
     </>
   )

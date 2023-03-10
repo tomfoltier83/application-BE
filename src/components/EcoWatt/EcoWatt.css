@@ -1,0 +1,89 @@
+.eco-watt-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    background: #232427;
+    background: url(../../images/Lake-water-dam-road_1920x1200.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+.days-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    padding-top: 100px;
+}
+.projection-day-container {
+    width: 15%;
+    height: 200px;
+    position: relative;
+    transition: transform 1s ease;
+    border-radius: 20px;
+}
+.projection-day-container:focus{
+    transform: scale(1.3);
+    outline: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.projection-day-container img {
+    height: 100%;
+    width: 100%;
+}
+.day-date {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    color: white;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.hourly-timeline-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.hourly-timeline-container h1 {
+    padding-bottom: 10px;
+}
+.timeline {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+}
+.timeline p {
+    position: relative;
+    bottom: -20px;
+    left: -10px;
+}
+.time-block:nth-child(2){
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.time-block:nth-child(25){
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.time-block{
+    margin: 0 1px;
+    width: 2%;
+    height: 20px;
+    background-color: #02f0c6;
+}
+
+.button-color{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+}
