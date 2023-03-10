@@ -25,6 +25,9 @@ export default function InfosChoice() {
         if (event.key === 'Enter') {
             navigate("/")
         }
+        if (event.key === 'ArrowLeft') {
+            navigate("/")
+        }
     }
 
     return (
@@ -38,6 +41,7 @@ export default function InfosChoice() {
             <Link to="/" style={{ color: "blue" }}>
                 <i class="fa-sharp fa-solid fa-droplet"></i>
             </Link>
+            <h1 className='helper'>Poussez le joystick vers la GAUCHE pour revenir.</h1>
         </div>
     )
 }
