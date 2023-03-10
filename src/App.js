@@ -11,6 +11,9 @@ import { Routes, Route, Navigate, useNavigate } from 'react-router-dom'
 import { useSelector } from "react-redux";
 import InfosChoice from './components/InfosChoice/InfosChoice';
 import EcoWatt from './components/EcoWatt/EcoWatt';
+import WaterCharts from "./components/DataType/WaterChart"
+import ElecCharts from "./components/DataType/ElecChart"
+import TempCharts from "./components/DataType/TempChart"
 
 
 function App() {
@@ -42,6 +45,9 @@ function App() {
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/infos" element={<InfosChoice />} />
         <Route exact path="/eco-watt" element={<EcoWatt />} />
+        <Route exact path="/eau" element={<WaterCharts/>} />
+        <Route exact path="/electricite" element={<ElecCharts />} />
+        <Route exact path="/temperature" element={<TempCharts />} />
       </Routes>
     </>
   )

@@ -17,13 +17,13 @@ export default function InfosChoice() {
 
     const handleKeyDown = (event) => {
         if (event.key === 'a') {
-            navigate("/")
+            navigate("/temperature")
         }
         if (event.key === 'z') {
-            navigate("/")
+            navigate("/electricite")
         }
         if (event.key === 'Enter') {
-            navigate("/")
+            navigate("/eau")
         }
         if (event.key === 'ArrowLeft') {
             navigate("/")
