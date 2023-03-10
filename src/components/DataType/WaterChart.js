@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Chart from 'chart.js/auto';
 import axios from 'axios';
 import tokenResponse from '../../data/data.json';
+import { useNavigate } from "react-router-dom";
 
 export default function WaterCharts() {
 
@@ -20,6 +21,21 @@ export default function WaterCharts() {
     const [waterJ5LastYear, setWaterJ5LastYear] = useState();
     const [waterJ6LastYear, setWaterJ6LastYear] = useState();
     const [waterJ7LastYear, setWaterJ7LastYear] = useState();
+    const navigate = useNavigate()
+
+    useEffect(() => {
+      document.addEventListener('keydown', handleKeyDown);
+
+      return () => {
+          document.removeEventListener('keydown', handleKeyDown)
+      }
+  }, []);
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'ArrowLeft') {
+          navigate("/infos")
+      }
+  }
 
     const token = tokenResponse["access_token"];
     axios.get('https://api-noe.alerteo.com/noe/v1.1/compteurs/158249574/date-derniere-mesure', {
