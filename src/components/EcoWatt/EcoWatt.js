@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import "./EcoWatt.css"
 import ecoWattData from "../../data/ecoWattData.json"
 
@@ -41,7 +41,7 @@ export default function EcoWatt() {
             <div className="hourly-timeline-container">
                 <h1>{ecoWattData.signals[0].message}</h1>
                 <div className="timeline">
-                    <div className={"time-block" + ``} style={{ backgroundColor: "transparent" }}></div>
+                    <div className={"time-block"} style={{ backgroundColor: "transparent" }}></div>
                     <div className="time-block"><p>0h</p></div>
                     <div className="time-block"></div>
                     <div className="time-block"><p>2h</p></div>
@@ -92,6 +92,7 @@ export default function EcoWatt() {
                     </div>
                 </div>
             </div>
+            <h1 className='helper'>Poussez le joystick vers la GAUCHE pour revenir.</h1>
         </div>
     )
 }

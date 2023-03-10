@@ -1,16 +1,16 @@
 .infos-choice-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
     min-height: 100vh;
-    background: #232427;
+    background: #53a145;
 }
 
 .infos-choice-container a {
     position: relative;
-    width: 220px;
-    height: 220px;
+    width: 300px;
+    height: 300px;
     box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
       inset -5px -5px 15px rgba(255, 255, 255, 0.1),
       5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
@@ -21,6 +21,7 @@
     transition: transform .3s ease-in-out;
     text-decoration: none;
     text-align: center;
+    background: #234d1c;
 }
 
 .infos-choice-container a:hover{
@@ -33,5 +34,5 @@
     text-shadow: 2px 7px 5px rgba(0,0,0,0.3), 
     0px -4px 10px rgba(255,255,255,0.3);
     top: 25%;
-    transform: translateY(10%);
+    transform: translateY(30%);
 }

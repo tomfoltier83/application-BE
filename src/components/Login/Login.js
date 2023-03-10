@@ -35,11 +35,11 @@ export default function Login() {
       setPlayersOfTheDay(snapshot.docs.map(doc => doc.data()["email"]))
     })
 
-    // document.addEventListener('keydown', handleJoyStick);
+    document.addEventListener('keydown', handleKeyDown);
 
-    // return () => {
-    //     document.removeEventListener('keydown', handleJoyStick)
-    // }
+    return () => {
+        document.removeEventListener('keydown', handleKeyDown)
+    }
 
   }, [])
 
@@ -48,7 +48,7 @@ export default function Login() {
       selectRef.current[0].focus()
     } else if (selectedIndex === 1) {
       selectRef.current[1].focus()
-    }else if (selectedIndex === 2) {
+    } else if (selectedIndex === 2) {
       selectRef.current[2].focus()
     }
   }, [selectedIndex])
@@ -134,6 +134,13 @@ export default function Login() {
     // }
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === 'a') {
+      event.preventDefault()
+      navigate("/")
+    }
+  }
+
   return (
     <>
       <form className="email-form">
@@ -168,13 +175,13 @@ export default function Login() {
           <ListToShow />
         </select>
         <p style={{ paddingTop: "20px", textAlign: "center", fontWeight: "600" }}>{playerError}</p>
-        <button        
-        ref={el => (selectRef.current[2] = el)}
-        onKeyDown={event => handleJoyStick(event, 0)}
-        onClick={handleNewPlayer}
+        <button
+          ref={el => (selectRef.current[2] = el)}
+          onKeyDown={event => handleJoyStick(event, 0)}
+          onClick={handleNewPlayer}
         >Enregistrer</button>
       </form >
-      <h1 className='login-helper'>Utilisez le JOYSTICK pour naviguer et appuyez sur le bouton <span>BLEU</span> pour valider !</h1>
+      <h1 className='login-helper'>Utilisez le JOYSTICK pour naviguer et appuyez sur le bouton <span style={{color: "#0400ff"}}>BLEU</span> pour valider. Ou bouton <span style={{color: "#f32121"}}>ROUGE</span> pour quitter.</h1>
     </>
   )
 }

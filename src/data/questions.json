@@ -39,8 +39,8 @@
     [
       {
         "enonce": "Quel est le principal atout de la voiture électrique pour l'environnement ?",
-        "reponse_correcte": "Elle est silencieuse.",
-        "reponseB": "Son moteur ne pollue pas quand elle roule.",
+        "reponse_correcte": "Son moteur ne pollue pas quand elle roule.",
+        "reponseB": "Elle est silencieuse.",
         "reponseC": "Elle n'a pas de pot d'échappement.",
         "complement": "Son moteur ne pollue pas lorsqu’elle roule contrairement à la voiture essence ou diesel qui brûle du carburant et rejette dans l’air des particules fines, des hydrocarbures et du CO2. A partir de 2035, tous les véhicules neufs vendus dans l’Union Européenne seront obligatoirement électriques."
       }

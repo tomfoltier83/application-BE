@@ -98,7 +98,7 @@ export default function Question() {
                 {isGoodAnswer ? <h3>Bonne réponse !</h3> : <h3>Mauvaise réponse ... <p style={{ fontSize: "15px", padding: "10px 0" }}>La réponse était : {questions["questions"][questionId][0]["reponse_correcte"]}</p></h3>}
                 <p className='complement-text'>{questions["questions"][questionId][0]["complement"]}</p>
                 <button autoFocus onKeyDown={event => handleNextKeyDown(event)} className='answer-button' style={{ backgroundColor: "white", color: "black" }}><p>Suivant</p><i class="fa-solid fa-arrow-right"></i></button>
-                <h3>Poussez le joystick vers la droite pour continuer.</h3>
+                <h3>Poussez le joystick vers la DROITE pour continuer.</h3>
             </div>
         )
     }
@@ -148,9 +148,12 @@ export default function Question() {
                             <h1>{questions["questions"][questionId][0]["enonce"]}</h1>
                         </div>
                         <div className="answers">
-                            <button id='button1' className='answer-button'>{answersArray[0]}</button>
-                            <button id='button2' className='answer-button'>{answersArray[1]}</button>
-                            <button id='button3' className='answer-button'>{answersArray[2]}</button>
+                            <button id='button1' className='answer-button' style={{  textShadow: "3px 0px 7px rgba(0, 0, 0, 0.8), -3px 0px 7px rgba(0, 0, 0, 0.8), 0px 4px 7px rgba(0, 0, 0, 0.8)"
+}}>{answersArray[0]}</button>
+                            <button id='button2' className='answer-button' style={{  textShadow: "3px 0px 7px rgba(0, 0, 0, 0.8), -3px 0px 7px rgba(0, 0, 0, 0.8), 0px 4px 7px rgba(0, 0, 0, 0.8)"
+}}>{answersArray[1]}</button>
+                            <button id='button3' className='answer-button' style={{  textShadow: "3px 0px 7px rgba(0, 0, 0, 0.8), -3px 0px 7px rgba(0, 0, 0, 0.8), 0px 4px 7px rgba(0, 0, 0, 0.8)"
+}}>{answersArray[2]}</button>
                         </div>
                     </div>
                     <ShowAnswer />

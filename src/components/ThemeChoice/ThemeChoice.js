@@ -14,7 +14,7 @@ export default function ThemeChoice() {
 
     useEffect(() => {
         document.addEventListener('keydown', handleKeyDown);
-        
+
         return () => {
             document.removeEventListener('keydown', handleKeyDown)
         }
@@ -34,7 +34,7 @@ export default function ThemeChoice() {
 
     return (
         <div className="theme-container">
-            <h1>Welcome to <span style={{color: "green"}}>G.R.E.T.A</span></h1>
+            <h1>Welcome to <span style={{ color: "green" }}>G.R.E.T.A</span></h1>
             <div class="container">
                 <div class="card">
                     <div class="box">
@@ -42,7 +42,8 @@ export default function ThemeChoice() {
                             <h2><i class="fa-solid fa-info"></i></h2>
                             <h3>Infos</h3>
                             <p>Jetez un coup d'oeil sur la consommation de la Maison du Numérique et de l'Innovation.</p>
-                            <Link to='/infos' activeClassName="current">Commencer</Link>
+                            <Link to='/infos' activeClassName="current" style={{  textShadow: "3px 0px 7px rgba(0, 0, 0, 0.8), -3px 0px 7px rgba(0, 0, 0, 0.8), 0px 4px 7px rgba(0, 0, 0, 0.8)"
+}}>Commencer</Link>
                         </div>
                     </div>
                 </div>
@@ -53,7 +54,9 @@ export default function ThemeChoice() {
                             <h2><i class="fa-solid fa-question"></i></h2>
                             <h3>Quizz</h3>
                             <p>Testez vos connaissances sur les enjeux écologiques d'aujourd'hui.</p>
-                            <Link to='/quizz' activeClassName="current">Commencer</Link>
+                            <Link to='/quizz' activeClassName="current" style={{
+                                textShadow: "3px 0px 7px rgba(0, 0, 0, 0.8), -3px 0px 7px rgba(0, 0, 0, 0.8), 0px 4px 7px rgba(0, 0, 0, 0.8)"
+                            }}>Commencer</Link>
                         </div>
                     </div>
                 </div>
@@ -64,7 +67,8 @@ export default function ThemeChoice() {
                             <h2><i class="fa-solid fa-cloud-sun"></i></h2>
                             <h3>Eco-Watt</h3>
                             <p>Consultez l'état du réseau électrique métropolitain avec la météo de l'électricité.</p>
-                            <Link to='/eco-watt' activeClassName="current">Commencer</Link>
+                            <Link to='/eco-watt' activeClassName="current" style={{  textShadow: "3px 0px 7px rgba(0, 0, 0, 0.8), -3px 0px 7px rgba(0, 0, 0, 0.8), 0px 4px 7px rgba(0, 0, 0, 0.8)"
+}}>Commencer</Link>
                         </div>
                     </div>
                 </div>
