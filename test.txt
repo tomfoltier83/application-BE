@@ -1,0 +1,1 @@
+*/5 7-21 * * * curl -d "client_id=5c66fd5e-e595-4af0-aaf4-242c02489ab3\&client_secret=1Fiq97NS96lZ._-2cl1~R_N5pAUap9c~-n\&grant_type=password\&scope=openid\&resource=5c66fd5e-e595-4af0-aaf4-242c02489ab3\&username=Citylab_Toulon\%40alerteo.com\&password=9rv_4D68ThQ\%5Bq-" https://login.microsoftonline.com/groupeherve.onmicrosoft.com/oauth2/token -o src/data/NoeData.json
