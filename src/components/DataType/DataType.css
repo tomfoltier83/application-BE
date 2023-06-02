@@ -1,0 +1,40 @@
+.chart-table-block {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  width: 100vw;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.chart-table-block > * {
+  width: 45%;
+}
+canvas {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+}
+table {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    border-radius: 20px;
+    overflow: hidden;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #f2f2f2;
+    width: 40%;
+  }
+  
+  tr:hover {
+    background-color: #f5f5f5;
+  }

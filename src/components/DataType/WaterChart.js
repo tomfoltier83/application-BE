@@ -1,106 +1,92 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
 import axios from 'axios';
-import tokenResponse from '../../data/data.json';
+import tokenResponse from '../../data/NoeData.json';
 import { useNavigate } from "react-router-dom";
+import "./DataType.css"
 
 export default function WaterCharts() {
 
-    const [dateLastMeasure, setDateLastMeasure] = useState();
-    const [waterJ1CurrentYear, setWaterJ1CurrentYear] = useState();
-    const [waterJ2CurrentYear, setWaterJ2CurrentYear] = useState();
-    const [waterJ3CurrentYear, setWaterJ3CurrentYear] = useState();
-    const [waterJ4CurrentYear, setWaterJ4CurrentYear] = useState();
-    const [waterJ5CurrentYear, setWaterJ5CurrentYear] = useState();
-    const [waterJ6CurrentYear, setWaterJ6CurrentYear] = useState();
-    const [waterJ7CurrentYear, setWaterJ7CurrentYear] = useState();
-    const [waterJ1LastYear, setWaterJ1LastYear] = useState();
-    const [waterJ2LastYear, setWaterJ2LastYear] = useState();
-    const [waterJ3LastYear, setWaterJ3LastYear] = useState();
-    const [waterJ4LastYear, setWaterJ4LastYear] = useState();
-    const [waterJ5LastYear, setWaterJ5LastYear] = useState();
-    const [waterJ6LastYear, setWaterJ6LastYear] = useState();
-    const [waterJ7LastYear, setWaterJ7LastYear] = useState();
-    const navigate = useNavigate()
+  const [noeData, setNoeData] = useState({})
+  const navigate = useNavigate()
 
-    useEffect(() => {
-      document.addEventListener('keydown', handleKeyDown);
+  const currentYearDateDebut = new Date();
 
-      return () => {
-          document.removeEventListener('keydown', handleKeyDown)
-      }
-  }, []);
+  const currentYearDateFin = new Date(currentYearDateDebut);
+  currentYearDateFin.setDate(currentYearDateDebut.getDate() - 7);
 
-    const handleKeyDown = (event) => {
-      if (event.key === 'ArrowLeft') {
-          navigate("/infos")
-      }
+  const lastYearDateDebut = new Date(currentYearDateDebut);
+  lastYearDateDebut.setFullYear(currentYearDateDebut.getFullYear() - 1);
+
+  const lastYearDateFin = new Date(currentYearDateFin);
+  lastYearDateFin.setFullYear(currentYearDateFin.getFullYear() - 1);
+
+  function formatDate(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
   }
 
-    const token = tokenResponse["access_token"];
-    axios.get('https://api-noe.alerteo.com/noe/v1.1/compteurs/158249574/date-derniere-mesure', {
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
+    axios.get(`https://api-noe.alerteo.com/noe/v1.1/compteurs/158249574/donnees-par-jour?dateDebut=${formatDate(currentYearDateFin)}&dateFin=${formatDate(currentYearDateDebut)}`, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    }).then(currentYearResponse => {
+      axios.get(`https://api-noe.alerteo.com/noe/v1.1/compteurs/158249574/donnees-par-jour?dateDebut=${formatDate(lastYearDateFin)}&dateFin=${formatDate(lastYearDateDebut)}`, {
         headers: {
-            'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer ${token}`
         }
-    }).then(response => {
-        console.log('Response:', response);
-        setDateLastMeasure(response.data["date"]);
+      }).then(lastYearResponse => {
+        console.log(currentYearResponse, lastYearResponse)
+        setNoeData({ currentYear: currentYearResponse, lastYear: lastYearResponse })
+      }).catch(error => console.error(error));
     }).catch(error => console.error(error));
 
-    axios.get(`https://api-noe.alerteo.com/noe/v1.1/compteurs/158249574/donnees-par-jour?dateDebut=2023-03-03&dateFin=2023-03-10`, {
-        headers: {
-            'Authorization': `Bearer ${token}`
-        }
-    }).then(response => {
-        console.log('Response:', response);
-        setWaterJ1CurrentYear(response.data[0]["consommation"]);
-        setWaterJ2CurrentYear(response.data[1]["consommation"]);
-        setWaterJ3CurrentYear(response.data[2]["consommation"]);
-        setWaterJ4CurrentYear(response.data[3]["consommation"]);
-        setWaterJ5CurrentYear(response.data[4]["consommation"]);
-        setWaterJ6CurrentYear(response.data[5]["consommation"]);
-        setWaterJ7CurrentYear(response.data[6]["consommation"]);
-    }).catch(error => console.error(error));
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, []);
 
-    axios.get('https://api-noe.alerteo.com/noe/v1.1/compteurs/158249574/donnees-par-jour?dateDebut=2022-03-03&dateFin=2022-03-10', {
-        headers: {
-            'Authorization': `Bearer ${token}`
-        }
-    }).then(response => {
-        console.log('Response:', response);
-        setWaterJ1LastYear(response.data[0]["consommation"]);
-        setWaterJ2LastYear(response.data[1]["consommation"]);
-        setWaterJ3LastYear(response.data[2]["consommation"]);
-        setWaterJ4LastYear(response.data[3]["consommation"]);
-        setWaterJ5LastYear(response.data[4]["consommation"]);
-        setWaterJ6LastYear(response.data[5]["consommation"]);
-        setWaterJ7LastYear(response.data[6]["consommation"]);
-    }).catch(error => console.error(error));
+  const handleKeyDown = (event) => {
+    if (event.key === 'ArrowLeft') {
+      navigate("/infos")
+    }
+  }
 
-    const waterData = [
-        { day: '2023-03-04', currentYear: waterJ1CurrentYear, lastYear: waterJ1LastYear },
-        { day: '2023-03-05', currentYear: waterJ2CurrentYear, lastYear: waterJ2LastYear },
-        { day: '2023-03-06', currentYear: waterJ3CurrentYear, lastYear: waterJ3LastYear },
-        { day: '2023-03-07', currentYear: waterJ4CurrentYear, lastYear: waterJ4LastYear },
-        { day: '2023-03-08', currentYear: waterJ5CurrentYear, lastYear: waterJ5LastYear },
-        { day: '2023-03-09', currentYear: waterJ6CurrentYear, lastYear: waterJ6LastYear },
-        { day: '2023-03-10', currentYear: waterJ7CurrentYear, lastYear: waterJ7LastYear },
-    ];
+  const token = tokenResponse["access_token"];
+
+  // id compteur eau global = 158249574
+  // id compteur EDF global = 158249575
+
+  const formatedDate = (dateString) => {
+    const dateAcquisition = dateString.dateAcquisition.split("T")[0];
+    const parts = dateAcquisition.split("-");
+    return `${parts[2]}/${parts[1]}/${parts[0]}`
+  }
 
   function Table() {
     return (
-      <table style={{position: "absolute", bottom: 0, left: "50%", transform: "translate(-50%,-20%)", color: "white", textShadow: "3px 0px 7px rgba(0, 0, 0, 0.8), -3px 0px 7px rgba(0, 0, 0, 0.8), 0px 4px 7px rgba(0, 0, 0, 0.8)"}}>
+      <table>
+        <thead>
+          <tr>
+            <th style={{ width: "20%" }}>Date</th>
+            <th>Consommation (en m3)</th>
+            <th>Consommation le même jour l'année précédente (en m3)</th>
+          </tr>
+        </thead>
         <tbody>
-        <tr>
-        <td>Date</td>
-              <td>Consommation du jour (en m3)</td>
-              <td>Consommation du même jour l'année précédente (en m3)</td>
-        </tr>
-          {waterData.map((item, index) => (
-            <tr key={index}>
-              <td>{item.day}</td>
-              <td>{item.currentYear}</td>
-              <td>{item.lastYear}</td>
+          {noeData.currentYear && noeData.currentYear.data.map((currentYearItem, currentYearIndex) => (
+            <tr key={currentYearIndex}>
+              <td>{formatedDate(currentYearItem)}</td>
+              <td>{currentYearItem.consommation}</td>
+              {noeData.lastYear && noeData.lastYear.data.map((lastYearItem, lastYearIndex) => {
+                if (currentYearIndex === lastYearIndex) {
+                  return <td>{lastYearItem.consommation}</td>
+                }
+              })}
             </tr>
           ))}
         </tbody>
@@ -108,9 +94,65 @@ export default function WaterCharts() {
     );
   }
 
+  function Graph() {
+    const chartRef = useRef();
+
+    useEffect(() => {
+      // Vérifiez que les données nécessaires sont présentes
+      if (noeData.currentYear && noeData.lastYear) {
+        const currentYearData = noeData.currentYear.data;
+        const lastYearData = noeData.lastYear.data;
+
+        // Préparez les données pour le graphique
+        const labels = currentYearData.map(item => formatedDate(item));
+        const currentYearValues = currentYearData.map(item => item.consommation);
+        const lastYearValues = lastYearData.map(item => item.consommation);
+
+        // Créez le graphique
+        const ctx = chartRef.current.getContext('2d')
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: 'Consommation cette année',
+                data: currentYearValues,
+                borderColor: 'blue',
+                fill: false
+              },
+              {
+                label: 'Consommation de l\'année précédente',
+                data: lastYearValues,
+                borderColor: 'red',
+                fill: false
+              }
+            ]
+          },
+          options: {
+            plugins: {
+              legend: {
+                labels: {
+                  color: 'black' // Couleur du texte de la légende
+                }
+              }
+            }
+
+            // Définissez les options du graphique ici
+          }
+        });
+      }
+    }, [noeData]);
+
+    return <canvas ref={chartRef} style={{ borderRadius: "20px", padding: "10px" }}></canvas>;
+  }
+
   return (
-    <div>
+    <div className='chart-table-block'>
       <Table />
+      <div>
+        <Graph />
+      </div>
     </div>
   )
 }

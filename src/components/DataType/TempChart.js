@@ -1,111 +1,100 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
 import axios from 'axios';
-import tokenResponse from '../../data/data.json';
+import tokenResponse from '../../data/NoeData.json';
 import { useNavigate } from "react-router-dom";
+import "./DataType.css"
 
 export default function TempCharts() {
 
 
-    const [dateLastMeasure, setDateLastMeasure] = useState();
-    const [tempJ1CurrentYear, setTempJ1CurrentYear] = useState();
-    const [tempJ2CurrentYear, setTempJ2CurrentYear] = useState();
-    const [tempJ3CurrentYear, setTempJ3CurrentYear] = useState();
-    const [tempJ4CurrentYear, setTempJ4CurrentYear] = useState();
-    const [tempJ5CurrentYear, setTempJ5CurrentYear] = useState();
-    const [tempJ6CurrentYear, setTempJ6CurrentYear] = useState();
-    const [tempJ7CurrentYear, setTempJ7CurrentYear] = useState();
-    const [tempJ1LastYear, setTempJ1LastYear] = useState();
-    const [tempJ2LastYear, setTempJ2LastYear] = useState();
-    const [tempJ3LastYear, setTempJ3LastYear] = useState();
-    const [tempJ4LastYear, setTempJ4LastYear] = useState();
-    const [tempJ5LastYear, setTempJ5LastYear] = useState();
-    const [tempJ6LastYear, setTempJ6LastYear] = useState();
-    const [tempJ7LastYear, setTempJ7LastYear] = useState();
-    const navigate = useNavigate()
+  const [noeData, setNoeData] = useState({})
+  const navigate = useNavigate()
 
-    useEffect(() => {
-      document.addEventListener('keydown', handleKeyDown);
+  const currentYearDateDebut = new Date();
 
-      return () => {
-          document.removeEventListener('keydown', handleKeyDown)
-      }
-  }, []);
+  const currentYearDateFin = new Date(currentYearDateDebut);
+  currentYearDateFin.setDate(currentYearDateDebut.getDate() - 7);
 
-    const handleKeyDown = (event) => {
-      if (event.key === 'ArrowLeft') {
-          navigate("/infos")
-      }
+  const lastYearDateDebut = new Date(currentYearDateDebut);
+  lastYearDateDebut.setFullYear(currentYearDateDebut.getFullYear() - 1);
+
+  const lastYearDateFin = new Date(currentYearDateFin);
+  lastYearDateFin.setFullYear(currentYearDateFin.getFullYear() - 1);
+
+  function formatDate(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
   }
 
-    const token = tokenResponse["access_token"];
-    axios.get('https://api-noe.alerteo.com/noe/v1.1/compteurs/158249582/date-derniere-mesure', {
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
+    axios.get(`https://api-noe.alerteo.com/noe/v1.1/compteurs/158249582/donnees-par-jour?dateDebut=${formatDate(currentYearDateFin)}&dateFin=${formatDate(currentYearDateDebut)}`, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    }).then(currentYearResponse => {
+      axios.get(`https://api-noe.alerteo.com/noe/v1.1/compteurs/158249582/donnees-par-jour?dateDebut=${formatDate(lastYearDateFin)}&dateFin=${formatDate(lastYearDateDebut)}`, {
         headers: {
-            'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer ${token}`
         }
-    }).then(response => {
-        console.log('Response:', response);
-        setDateLastMeasure(response.data["date"]);
+      }).then(lastYearResponse => {
+        console.log(currentYearResponse, lastYearResponse)
+        setNoeData({ currentYear: currentYearResponse, lastYear: lastYearResponse })
+      }).catch(error => console.error(error));
     }).catch(error => console.error(error));
 
-    axios.get(`https://api-noe.alerteo.com/noe/v1.1/compteurs/158249582/donnees-par-jour?dateDebut=2023-03-03&dateFin=2023-03-10`, {
-        headers: {
-            'Authorization': `Bearer ${token}`
-        }
-    }).then(response => {
-        console.log('Response:', response);
-        setTempJ1CurrentYear(response.data[0]["consommation"]);
-        setTempJ2CurrentYear(response.data[1]["consommation"]);
-        setTempJ3CurrentYear(response.data[2]["consommation"]);
-        setTempJ4CurrentYear(response.data[3]["consommation"]);
-        setTempJ5CurrentYear(response.data[4]["consommation"]);
-        setTempJ6CurrentYear(response.data[5]["consommation"]);
-        setTempJ7CurrentYear(response.data[6]["consommation"]);
-    }).catch(error => console.error(error));
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, []);
 
-    axios.get('https://api-noe.alerteo.com/noe/v1.1/compteurs/158249582/donnees-par-jour?dateDebut=2022-03-03&dateFin=2022-03-10', {
-        headers: {
-            'Authorization': `Bearer ${token}`
-        }
-    }).then(response => {
-        console.log('Response:', response);
-        setTempJ1LastYear(response.data[0]["consommation"]);
-        setTempJ2LastYear(response.data[1]["consommation"]);
-        setTempJ3LastYear(response.data[2]["consommation"]);
-        setTempJ4LastYear(response.data[3]["consommation"]);
-        setTempJ5LastYear(response.data[4]["consommation"]);
-        setTempJ6LastYear(response.data[5]["consommation"]);
-        setTempJ7LastYear(response.data[6]["consommation"]);
-    }).catch(error => console.error(error));
+  const handleKeyDown = (event) => {
+    if (event.key === 'ArrowLeft') {
+      navigate("/infos")
+    }
+  }
 
-    // id compteur temp accueil = 158249582
-    // id compteur eau global = 158249574
-    // id compteur EDF global = 158249575
+  const token = tokenResponse["access_token"];
 
-    const temperatureData = [
-        { day: '2023-03-04', currentYear: tempJ1CurrentYear, lastYear: tempJ1LastYear },
-        { day: '2023-03-05', currentYear: tempJ2CurrentYear, lastYear: tempJ2LastYear },
-        { day: '2023-03-06', currentYear: tempJ3CurrentYear, lastYear: tempJ3LastYear },
-        { day: '2023-03-07', currentYear: tempJ4CurrentYear, lastYear: tempJ4LastYear },
-        { day: '2023-03-08', currentYear: tempJ5CurrentYear, lastYear: tempJ5LastYear },
-        { day: '2023-03-09', currentYear: tempJ6CurrentYear, lastYear: tempJ6LastYear },
-        { day: '2023-03-10', currentYear: tempJ7CurrentYear, lastYear: tempJ7LastYear },
-    ];
+  // id compteur eau global = 158249574
+  // id compteur EDF global = 158249575
+
+  const formatedDate = (dateString) => {
+    const dateAcquisition = dateString.dateAcquisition.split("T")[0];
+    const parts = dateAcquisition.split("-");
+    return `${parts[2]}/${parts[1]}/${parts[0]}`
+  }
+
+  const cutConsommation = (conso) => {
+    const numberString = conso;
+    const number = parseFloat(numberString);
+    const roundedNumber = number.toFixed(1);
+    return roundedNumber.toString();
+  }
 
   function Table() {
     return (
-      <table  style={{position: "absolute", bottom: 0, left: "50%", transform: "translate(-50%,-20%)", color: "white", textShadow: "3px 0px 7px rgba(0, 0, 0, 0.8), -3px 0px 7px rgba(0, 0, 0, 0.8), 0px 4px 7px rgba(0, 0, 0, 0.8)"}}>
+      <table>
+        <thead>
+          <tr>
+            <th style={{ width: "20%" }}>Date</th>
+            <th>Moyenne journalière de la température mesurée à l'accueil sur les 7 derniers jours (en °C)</th>
+            <th>Moyenne journalière de la température mesurée à l'accueil sur la même période l'année dernière (en °C)</th>
+          </tr>
+        </thead>
         <tbody>
-        <tr>
-          <td>Date</td>
-            <td>Moyenne journalière de la température mesurée à l'accueil sur les 7 derniers jours (en °C)</td>
-            <td>Moyenne journalière de la température mesurée à l'accueil sur la même période l'année dernière (en °C)</td>
-        </tr>
-          {temperatureData.map((item, index) => (
-            <tr key={index}>
-              <td>{item.day}</td>
-              <td>{item.currentYear}</td>
-              <td>{item.lastYear}</td>
+          {noeData.currentYear && noeData.currentYear.data.map((currentYearItem, currentYearIndex) => (
+            <tr key={currentYearIndex}>
+              <td>{formatedDate(currentYearItem)}</td>
+              <td>{cutConsommation(currentYearItem.consommation)}</td>
+              {noeData.lastYear && noeData.lastYear.data.map((lastYearItem, lastYearIndex) => {
+                if (currentYearIndex === lastYearIndex) {
+                  return <td>{cutConsommation(lastYearItem.consommation)}</td>
+                }
+              })}
             </tr>
           ))}
         </tbody>
@@ -113,9 +102,65 @@ export default function TempCharts() {
     );
   }
 
+  function Graph() {
+    const chartRef = useRef();
+
+    useEffect(() => {
+      // Vérifiez que les données nécessaires sont présentes
+      if (noeData.currentYear && noeData.lastYear) {
+        const currentYearData = noeData.currentYear.data;
+        const lastYearData = noeData.lastYear.data;
+
+        // Préparez les données pour le graphique
+        const labels = currentYearData.map(item => formatedDate(item));
+        const currentYearValues = currentYearData.map(item => item.consommation);
+        const lastYearValues = lastYearData.map(item => item.consommation);
+
+        // Créez le graphique
+        const ctx = chartRef.current.getContext('2d')
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: 'Température mesurée à l\'accueil cette année',
+                data: currentYearValues,
+                borderColor: 'blue',
+                fill: false
+              },
+              {
+                label: 'Température mesurée à l\'accueil l\'année précédente',
+                data: lastYearValues,
+                borderColor: 'red',
+                fill: false
+              }
+            ]
+          },
+          options: {
+            plugins: {
+              legend: {
+                labels: {
+                  color: 'black' // Couleur du texte de la légende
+                }
+              }
+            }
+
+            // Définissez les options du graphique ici
+          }
+        });
+      }
+    }, [noeData]);
+
+    return <canvas ref={chartRef} style={{ borderRadius: "20px", padding: "10px" }}></canvas>;
+  }
+
   return (
-    <div>
+    <div className='chart-table-block'>
       <Table />
+      <div>
+        <Graph />
+      </div>
     </div>
   )
 }
