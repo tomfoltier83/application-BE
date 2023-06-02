@@ -138,6 +138,7 @@ export default function Login() {
     if (event.key === 'a') {
       event.preventDefault()
       navigate("/")
+      dispatch(resetAll())
     }
   }
 
